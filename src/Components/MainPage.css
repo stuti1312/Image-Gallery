@@ -1,0 +1,14 @@
+.App body {
+  margin: 0;
+  padding: 0;
+  color: darkred;
+  background-color: darksalmon;
+}
+
+.welcome {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}

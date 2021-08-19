@@ -1,0 +1,48 @@
+body{
+  color: purple;
+  background-color: pink;
+}
+
+h1 {
+  font-size: 50px;
+  margin: 20px;
+  padding: 10px;
+  top: 5%;
+  text-align: center;
+}
+
+.searchBar {
+  justify-content: center;
+  display: flex;
+}
+
+.submitBtn {
+  position: absolute;
+  left: 666px;
+}
+
+.all-btn {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.btn-M,
+.btn-Be,
+.btn-Bi,
+.btn-F {
+  margin: 10px;
+  border: 2px solid purple;
+  border-radius: 6px;
+  width: 100px;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: lightsalmon;
+}
+
+h2 {
+  font-size: 2.5em !important;
+  text-align: center;
+}

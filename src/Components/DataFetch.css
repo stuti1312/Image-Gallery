@@ -1,0 +1,17 @@
+body {
+  color: purple;
+  background-color: pink;
+}
+
+.imageStyle {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+img {
+  margin: 10px;
+  border: 2px solid purple;
+  border-radius: 6px;
+}
