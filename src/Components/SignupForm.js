@@ -1,53 +1,58 @@
 import React, { Component } from "react";
 import "./SignupForm.css";
-// import axios from "axios";
 
 class SignupForm extends Component {
   constructor() {
     super();
     this.state = {
-      username:"",
+      username: "",
       email: "",
       password: "",
-      isAuth : localStorage.getItem("LoginData")
+      isAuth: localStorage.getItem("LoginData"),
     };
   }
 
   changeHandler = (e) => {
-    // name:value pair is used because, we named the inputs to match their corresponding values in state, it's super easy to update the state this way
+    /* name:value pair is used,
+    we named the inputs to match their corresponding values in state,
+    it's super easy to update the state*/
     this.setState({ [e.target.name]: e.target.value.replace(/\s+/g, "") });
   };
 
-  componentDidMount(){
+  // check for user login data
+  componentDidMount() {
     const { history } = this.props;
+    console.log("history", history);
     if (this.state.isAuth) {
-      history.push("/searchimage");
-      window.location.reload();
+      history.push("/searchimage"); // to push signup to search image
+      window.location.reload(); //page reload
     }
-  };
+  }
 
   submitHandler = (e) => {
     e.preventDefault();
+    alert("Hurray!!! You are successfully Signed Up");
+
     // to get our form data out of the state
     const { username, email, password } = this.state;
 
     // To show data in console
+    console.log("username", username);
     console.log("email", email);
     console.log("password", password);
 
     // To store data in localStorage
     var UserData = [{ username: username, password: password, email: email }];
-
     localStorage.setItem("UserData", JSON.stringify(UserData));
   };
 
   render() {
     const { username, email, password } = this.state; //   destructuring
     return (
-      <div>
+      <div className="form-inner">
         <h1>Signup Page</h1>
         <form onSubmit={this.submitHandler}>
-          <div>
+          <div className="form-group1">
             <div>
               <label htmlFor="username">Name</label>
             </div>
@@ -63,7 +68,7 @@ class SignupForm extends Component {
             </div>
           </div>
 
-          <div>
+          <div className="form-group2">
             <div>
               <label htmlFor="email">Email</label>
             </div>
@@ -79,7 +84,7 @@ class SignupForm extends Component {
             </div>
           </div>
 
-          <div>
+          <div className="form-group3">
             <div>
               <label htmlFor="password">Password</label>
             </div>

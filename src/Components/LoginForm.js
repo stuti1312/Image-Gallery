@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./LoginForm.css";
 
-// import axios from "axios";
-
 class LoginForm extends Component {
   constructor() {
     super();
@@ -10,48 +8,43 @@ class LoginForm extends Component {
       email: "",
       password: "",
       User_data: JSON.parse(localStorage.getItem("UserData")),
+      /*simply taking user data from local storage,
+      which is in JSON string format bydefault,
+      and converting JSON string data into JS object,
+      and storing thedata in a variable User_data */
+
       error: "",
-      isAuth : localStorage.getItem("LoginData")
+      isAuth: localStorage.getItem("LoginData"),
+      /* simply checking for login data in local storage,
+      and storing that data into new variable isAuth */
     };
   }
 
   changeHandler = (e) => {
-    // name:value pair is used because, we named the inputs to match their corresponding values in state, it's super easy to update the state this way
-    this.setState({ [e.target.name]: e.target.value.replace(/\s+/g, "") });
+    /* name:value pair is used,
+    because we named the inputs to match their corresponding values in state,
+    it's super easy to update the state*/
+    this.setState({ [e.target.name]: e.target.value.replace(/\s+/g, "") }); // simply used to remove extra space
   };
 
-  var 
-
-  componentDidMount(){
+  // used to check for login state
+  componentDidMount() {
     const { history } = this.props;
     if (this.state.isAuth) {
-      history.push("/searchimage");
+      history.push("/searchimage"); // push the page to search image and reload, if we have login data
       window.location.reload();
     }
-  };
-  
+  }
+
   submitHandler = (e) => {
     e.preventDefault();
+
     // to get our form data out of the state
     const { email, password } = this.state;
 
-    // To show data in console
-    console.log(
-      "email",
-      email,
-      "this.state.User_data.map(e=> e.email)",
-      this.state.User_data.map((e) => e.email)
-    );
-    console.log(
-      "password",
-      password,
-      "this.state.User_data.map(e=> e.password)",
-      this.state.User_data.map((e) => e.password)
-    );
-
     // To store data in localStorage
     if (
-      this.state.User_data.map((e) => e.email) == email &&
+      this.state.User_data.map((e) => e.email) == email && // compairing the data of login/loginData and signup/userData
       this.state.User_data.map((e) => e.password) == password
     ) {
       var LoginData = [
@@ -61,22 +54,25 @@ class LoginForm extends Component {
           password: password,
         },
       ];
-      localStorage.setItem("LoginData", JSON.stringify(LoginData));
+
+      localStorage.setItem("LoginData", JSON.stringify(LoginData)); //setting data into local storage and coverting into
+
+      // to push to search image after login successfully
       const { history } = this.props;
       history.push("/searchimage");
       window.location.reload();
     } else {
-      return this.setState({ error: 'Password is Wrong' });
+      return this.setState({ error: "Password is Wrong" });
     }
   };
 
   render() {
     const { email, password } = this.state; //   destructuring
     return (
-      <div>
-        <h1>Login Page</h1>
+      <div className="form-inner">
+        <h1>Login</h1>
         <form onSubmit={this.submitHandler}>
-          <div>
+          <div className="form-group1">
             <div>
               <label htmlFor="email">Email</label>
             </div>
@@ -92,7 +88,7 @@ class LoginForm extends Component {
             </div>
           </div>
 
-          <div>
+          <div className="form-group2">
             <div>
               <label htmlFor="password">Password</label>
             </div>
@@ -107,12 +103,18 @@ class LoginForm extends Component {
               />
             </div>
           </div>
+
           <div>
             <button type="submit">Login</button>
           </div>
-        </form>
-        {this.state.error}
 
+          <h5>
+            Don't have an account? Then, create an account using SignUp page
+          </h5>
+        </form>
+
+        {/* if error throw message */}
+        {this.state.error}
       </div>
     );
   }

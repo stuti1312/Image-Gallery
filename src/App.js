@@ -3,22 +3,23 @@ import "./App.css";
 import LoginForm from "./Components/LoginForm";
 import SignupForm from "./Components/SignupForm";
 import SearchImage from "./Components/SearchImage";
-import Navbar from "./Components/Navbar";
-import ProtectedRoute from "../src/ProtectedRoute/ProtectedRoute";
-
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-// import NewLogin from "./component/NewLogin"
+import Navbar from "./Components/Navbar"; // used for showing login and signup links on the top of page
+import ProtectedRoute from "../src/ProtectedRoute/ProtectedRoute"; // used for Authentication purpose
+import { Switch, Route } from "react-router-dom"; //used for navigation
 
 const App = () => {
   return (
     <div>
       <Navbar />
+
+      {/* switch is used for checking one condition at a time if any path matches */}
       <Switch>
-        <Route path="/login" component={LoginForm} exact />
+        <Route exact path="/login" component={LoginForm} />
         <Route path="/signup" component={SignupForm} />
         <ProtectedRoute path="/searchimage" component={SearchImage} />
-        <Route component={LoginForm} />
+
+        {/* used to show initially login page as user enters, otherwise not necessary */}
+        {/* <Route component={LoginForm} /> */}
       </Switch>
     </div>
   );

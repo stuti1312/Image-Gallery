@@ -6,7 +6,8 @@ export default function SearchImage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [passTerm, setpassTerm] = useState("Mountain");
 
-  // storing the API into variable, so as to use API at multiple places without writing the whole Api again and again
+  /* storing the API into variable,
+  so as to use API at multiple places without writing the whole Api again and again*/
   const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=636e1481b4f3c446d26b8eb6ebfe7127&tags=${passTerm}&per_page=24&format=json&nojsoncallback=1`;
 
   const handleSubmit = (evt) => {
@@ -76,7 +77,7 @@ export default function SearchImage() {
       <h2> {passTerm} Images </h2>
 
       <div>
-        <DataFetch url={url}/>
+        <DataFetch url={url} />
       </div>
     </div>
   );

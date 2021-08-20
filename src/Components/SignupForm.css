@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(121, 117, 184);
+  color: rgb(90, 26, 5);
+}
+
+.form-group1,
+.form-group2,
+.form-group1 {
+  text-align: center;
+  padding: 10px;
+}
+
+input,
+label {
+  padding: 10px;
+}
+
+label {
+  padding-right: 20px;
+}
+.form-inner {
+  text-align: center;
+}

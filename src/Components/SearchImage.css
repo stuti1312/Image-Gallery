@@ -1,4 +1,4 @@
-body{
+body {
   color: purple;
   background-color: pink;
 }
@@ -17,8 +17,11 @@ h1 {
 }
 
 .submitBtn {
+  font-size: 21px;
+  padding: 5px;
   position: absolute;
-  left: 666px;
+  left: 669px;
+  top: 117px;
 }
 
 .all-btn {
