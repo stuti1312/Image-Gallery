@@ -25,7 +25,7 @@ class SignupForm extends Component {
     console.log("history", history);
     if (this.state.isAuth) {
       history.push("/searchimage"); // to push signup to search image
-      window.location.reload(); //page reload
+      // window.location.reload(); //page reload
     }
   }
 
@@ -50,7 +50,7 @@ class SignupForm extends Component {
     const { username, email, password } = this.state; //   destructuring
     return (
       <div className="form-inner">
-        <h1>Signup Page</h1>
+        <h1>Signup</h1>
         <form onSubmit={this.submitHandler}>
           <div className="form-group1">
             <div>
